@@ -1,0 +1,45 @@
+u1= User.objects.create_user('Nazarr')
+u1= User.objects.create_user('Olegg')
+
+Autor.objects.craste(autor_user=u1)
+Autor.objects.craste(autor_user=u2)
+
+Category.objects.create(name_cat='World News')
+Category.objects.create(name_cat='Regional News')
+Category.objects.create(name_cat='Economic News')
+Category.objects.create(name_cat='Politic News')
+Category.objects.create(name_cat='IT')
+
+autor = Autor.objects.craste(autor_user=u1)
+
+Post.objects.create(post_autor=autor, articles_or_news='NE', title='title1', text='text1')
+Post.objects.create(post_autor=autor, articles_or_news='NE', title='title2', text='text2')
+Post.objects.create(post_autor=autor, articles_or_news='AR', title='title3', text='text3')
+
+Post.objects.get(id=1).post_catagory.add(Category.objects.get(id=1))
+Post.objects.get(id=2).post_catagory.add(Category.objects.get(id=1))
+Post.objects.get(id=3).post_catagory.add(Category.objects.get(id=1))
+Post.objects.get(id=4).post_catagory.add(Category.objects.get(id=1))
+Post.objects.get(id=1).post_catagory.add(Category.objects.get(id=2))
+
+Comment.objects.create(comment_post=Post.objects.get(id=1), comment_user=u1, text_com=t)
+Comment.objects.create(comment_post=Post.objects.get(id=2), comment_user=u1, text_com=e)
+Comment.objects.create(comment_post=Post.objects.get(id=3), comment_user=u1, text_com=x)
+Comment.objects.create(comment_post=Post.objects.get(id=3), comment_user=u1, text_com=t)
+
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+
+Comment.objects.get(id=2).like()
+
+Comment.objects.get(id=3).dislike()
+
+Comment.objects.get(id=4).dislike()
+Comment.objects.get(id=4).dislike()
+Comment.objects.get(id=4).dislike()
+Comment.objects.get(id=4).dislike()
+
+Autor.objects.get(id=1).update_rating()
+Autor.objects.get(id=2).update_rating()
